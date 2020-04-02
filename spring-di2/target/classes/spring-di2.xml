@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="bean1" class="com.chan.spring.ArraysBeans">
+		<property name="arrays">
+			<array>
+				<value>Hello</value>
+				<value>Spring Core!</value>
+				<value>I love coding.</value>
+				<value>Spring is amazing.</value>
+			</array>
+		</property>
+	</bean>
+	<bean id="bean2" class="com.chan.spring.ListBeans">
+		<constructor-arg>
+			<list>
+				<value>Su Ngwe Aung</value>
+				<value>Won Pyae Eain</value>
+				<value>Toon Myat Thmwe</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="bean3" class="com.chan.spring.MapBeans">
+		<property name="map">
+			<map>
+				<entry key="key1" value="value1"></entry>
+				<entry key="key2" value="value2"></entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="bean4" class="com.chan.spring.PropertiesBean">
+		<property name="prop">
+			<props>
+				<prop key="url">jdbc:hsql:test</prop>
+				<prop key="user">sa</prop>
+				<prop key="driver">org.db.jdbc.JDBCDRIVER</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
