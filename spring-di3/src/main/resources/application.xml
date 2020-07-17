@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+	<bean class="com.chan.spring.ScannerFactory" id="factory"></bean>
+	<bean id="scanner" class="java.util.Scanner" factory-bean="factory"
+		factory-method="getScanner">
+	</bean>
+	<bean id="input" class="com.chan.spring.InputReader">
+		<property name="scanner" ref="scanner"></property>
+	</bean>
+	<bean id="output" class="com.chan.spring.OutPutWriter">
+		<constructor-arg ref="input"></constructor-arg>
+	</bean>
+</beans>
