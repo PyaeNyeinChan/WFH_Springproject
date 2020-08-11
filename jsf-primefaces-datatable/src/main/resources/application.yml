@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/cnf
+    username: root
+    password: root
+    initialization-mode: always
+
+  jpa:
+    hibernate:
+      ddl-auto: create      formate_sql : true
+      show_sql : true
