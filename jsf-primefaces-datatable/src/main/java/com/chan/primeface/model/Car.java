@@ -1,11 +1,13 @@
-package com.chan.model;
+package com.chan.primeface.model;
 
+import javax.annotation.ManagedBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name = "Car")
+@Entity(name = "cars")
+@ManagedBean(value = "Car")
 public class Car {
 
 	@Id
@@ -14,6 +16,10 @@ public class Car {
 	private String brand;
 	private int year;
 	private String color;
+	
+	public Car() {
+		
+	}
 
 	public Car(Long id, String brand, int year, String color) {
 		this.id = id;
