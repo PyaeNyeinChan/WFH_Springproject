@@ -1,31 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
 <h:head>
 	<title>PrimeFaces DataTable Example</title>
+	<link rel="stylesheet" type="text/css"
+		href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css" />
 </h:head>
 
 <h:body>
+	<h:form id="form">
+		<p:dataTable id="CarDB" var="car" value="#{carsView.cars}"
+			selection="#{carsView.selectedCar}" rowKey="#{car.id}"
+			style="margin-bottom:0">
+			<p:column selectionMode="single" />
+			<p:column headerText="Id">
+				<h:outputText value="#{car.id}" />
+			</p:column>
 
-	<p:dataTable var="car" value="#{carsView.cars}">
-		<p:column headerText="Id">
-			<h:outputText value="#{car.id}" />
-		</p:column>
+			<p:column headerText="Year">
+				<h:outputText value="#{car.year}" />
+			</p:column>
 
-		<p:column headerText="Year">
-			<h:outputText value="#{car.year}" />
-		</p:column>
+			<p:column headerText="Brand">
+				<h:outputText value="#{car.brand}" />
+			</p:column>
 
-		<p:column headerText="Brand">
-			<h:outputText value="#{car.brand}" />
-		</p:column>
+			<p:column headerText="Color">
+				<h:outputText value="#{car.color}" />
+			</p:column>
 
-		<p:column headerText="Color">
-			<h:outputText value="#{car.color}" />
-		</p:column>
-	</p:dataTable>
+			<f:facet name="footer">
+				<p:commandButton process="CarDB" action="#{carsView.selectID()}"
+					value="Clicked" />
+			</f:facet>
+		</p:dataTable>
+	</h:form>
 
 </h:body>
 </html>
