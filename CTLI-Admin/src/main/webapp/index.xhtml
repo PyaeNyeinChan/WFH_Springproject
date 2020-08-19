@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+<h:head>
+	<title>SendSMSDemo</title>
+	<link rel="stylesheet" type="text/css"
+		href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css" />
+</h:head>
+
+<h:body>
+	<h1 class="text-center">CTLI-Admin</h1>
+	<h:form>
+		<p:dataTable var="customer"
+			value="#{iUserServices.users}">
+			<p:column headerText="ID">
+				<h:outputText value="#{customer.id}" />
+			</p:column>
+
+			<p:column headerText="Name">
+				<h:outputText value="#{customer.name}" />
+			</p:column>
+
+			<p:column headerText="PhoneNumber">
+				<h:outputText value="#{customer.phnum}" />
+			</p:column>
+
+			<p:column headerText="SendNoti">
+				<p:commandButton value="SendNoti"
+					action="#{iUserServices.SendNoti(customer.id)}">
+				</p:commandButton>
+			</p:column>
+			
+			<p:column headerText="SendSMS">
+				<p:commandButton value="SendSMS" action="#{iUserServices.sendSMS(customer.phnum)}">
+				
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
