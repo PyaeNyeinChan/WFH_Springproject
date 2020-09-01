@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class UploadController {
 
-    private final String UPLOAD_DIR = "./uploads/";
+    private final String UPLOAD_DIR = "C://Chan//404Files//";
 
     @GetMapping("/")
     public String homepage() {
